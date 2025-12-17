@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, cozy palette inspired by fire and wood */
+    --background: 40 33% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 30% 96%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Warm amber/orange primary */
+    --primary: 32 95% 44%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Deep charcoal secondary */
+    --secondary: 30 8% 20%;
+    --secondary-foreground: 40 33% 98%;
+
+    /* Muted warm tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 30 10% 40%;
+
+    /* Accent - warm gold */
+    --accent: 38 92% 50%;
+    --accent-foreground: 30 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 32 95% 44%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --ember: 15 90% 55%;
+    --flame: 25 100% 50%;
+    --wood-light: 35 40% 75%;
+    --wood-dark: 25 30% 25%;
+    --cream: 45 50% 95%;
+    --charcoal: 30 10% 12%;
+
+    /* Gradients */
+    --gradient-fire: linear-gradient(135deg, hsl(32 95% 44%), hsl(15 90% 55%));
+    --gradient-warm: linear-gradient(180deg, hsl(40 33% 98%), hsl(35 30% 92%));
+    --gradient-ember: linear-gradient(135deg, hsl(25 100% 50%), hsl(15 90% 55%), hsl(0 80% 45%));
+
+    /* Shadows */
+    --shadow-warm: 0 4px 20px -4px hsl(32 95% 44% / 0.2);
+    --shadow-soft: 0 4px 30px -10px hsl(30 10% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(32 95% 44% / 0.3);
+
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 32 95% 44%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 35 20% 90%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 32 95% 44%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 40 20% 92%;
+
+    --card: 30 12% 12%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 30 12% 10%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 32 95% 50%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 35 15% 20%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 30 10% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 30 15% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 20% 92%;
+
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 32 95% 50%;
+
+    --sidebar-background: 30 12% 10%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 32 95% 50%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 10% 18%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 30 10% 20%;
+    --sidebar-ring: 32 95% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .gradient-fire {
+    background: var(--gradient-fire);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-ember {
+    background: var(--gradient-ember);
+  }
+
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient-fire {
+    background: var(--gradient-fire);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-flame {
+    animation: flame 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 20px hsl(32 95% 44% / 0.3); }
+    to { box-shadow: 0 0 40px hsl(32 95% 44% / 0.5); }
+  }
+
+  @keyframes flame {
+    0%, 100% { 
+      transform: scaleY(1) translateY(0);
+      opacity: 1;
+    }
+    50% { 
+      transform: scaleY(1.05) translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+}
