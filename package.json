@@ -12,7 +12,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve -s dist --listen tcp://0.0.0.0:$PORT"
+    "start": "bunx serve dist --listen 0.0.0.0:$PORT"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
